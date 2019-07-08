@@ -19,7 +19,7 @@ include "util.php";      //유틸 함수
     }
     ?>
 	<h4>메모 목록
-	<a href='memo_view.php'>생성</a>
+	<a href='memo_view.php' class="btn btn-default">생성</a>
 	<?
 	if (array_key_exists("search_keyword", $_POST)) {  // array_key_exists() : Checks if the specified key exists in the array
 		echo "  (검색어: ";
@@ -29,7 +29,7 @@ include "util.php";      //유틸 함수
 	?>
 	</h4>
 	<br>
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered table-hover">
         <thead>
         <tr>
             <th>No.</th>
@@ -43,7 +43,7 @@ include "util.php";      //유틸 함수
         while ($row = mysqli_fetch_array($res)) {
             echo "<tr>";
             echo "<td>{$row_index}</td>";
-            echo "<td><a href='memo_view.php?memo_id={$row['memo_id']}'>{$row['memo_title']}</td>";
+            echo "<td><a href='memo_form.php?memo_id={$row['memo_id']}'>{$row['memo_title']}</td>";
             echo "<td>{$row['memo_time']}</a></td>";
             echo "</tr>";
             $row_index++;
